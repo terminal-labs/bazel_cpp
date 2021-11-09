@@ -9,7 +9,5 @@ echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" |
 sudo apt update && sudo apt install -y bazel
 sudo apt update && sudo apt full-upgrade -y
 
-# Add to bash completion
-source /root/.bazel/bin/bazel-complete.bash
 # Show bazel version
 bazel --version
