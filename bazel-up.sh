@@ -8,19 +8,11 @@ echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" |
 
 sudo apt update && sudo apt install -y bazel
 sudo apt update && sudo apt full-upgrade -y
-sudo apt install -y bazel-1.0.0
 
-if [ ! -f /usr/bin/bazel-1.0.0 ]
-then
-  echo "Bazel binary file /usr/bin/bazel-1.0.0 does not exist."
-  sudo ln -s /usr/bin/bazel-1.0.0 /usr/bin/bazel
-else
-  echo "File /usr/bin/bazel-1.0.0 exists."
-fi
-  
+
 bazel --version  # 1.0.0
 
-
+# Bazel install from binary
 sudo apt install -y g++ unzip zip
 
 if [ ! -f bazel-6.0.0-pre.20211025.1-installer-linux-x86_64.sh ]
