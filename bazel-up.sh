@@ -12,7 +12,7 @@ sudo apt install -y bazel-1.0.0
 
 if [ ! -f /usr/bin/bazel-1.0.0 ]
 then
-  echo "File /usr/bin/bazel-1.0.0 does not exist."
+  echo "Bazel binary file /usr/bin/bazel-1.0.0 does not exist."
   sudo ln -s /usr/bin/bazel-1.0.0 /usr/bin/bazel
 else
   echo "File /usr/bin/bazel-1.0.0 exists."
