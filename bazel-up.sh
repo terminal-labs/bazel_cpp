@@ -9,8 +9,13 @@ echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" |
 sudo apt update && sudo apt install -y bazel
 sudo apt update && sudo apt full-upgrade -y
 
-# Show bazel version
-bazel --version
+# Show Bazel version, test bazel installation.
+if ! command -v bazel &> /dev/null
+then
+  echo "Bazel install failed or bazel command is unavailable."
+else
+  echo "Successfully installed $(bazel --version)"
+fi
 
 
 ### Tutorial test
