@@ -9,7 +9,7 @@ echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" |
 sudo apt update && sudo apt install -y bazel
 sudo apt update && sudo apt full-upgrade -y
 
-# Show Bazel version, test bazel installation.
+# Show Bazel version, test bazel installation
 if ! command -v bazel &> /dev/null
 then
   echo "Bazel install failed or bazel command is unavailable."
@@ -23,7 +23,7 @@ fi
 # Clone repo
 if [ ! -d  examples ]
 then
-  echo "Cloning bazelbuild/examples tutorial repo"
+  echo "Cloning bazelbuild/examples tutorial repo:"
   git clone https://github.com/bazelbuild/examples
 else
   echo "Tutorial repo bazelbuild/examples present."
@@ -42,7 +42,7 @@ bazel query --notool_deps --noimplicit_deps "deps(//main:hello-world)" \
   --output graph
 
 # Build stage2 example
-echo "Building stage1 example:"
+echo "Building stage2 example:"
 cd ../stage2
 bazel build //main:hello-world
 echo "Running stage2 example:"
