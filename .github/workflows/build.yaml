@@ -1,0 +1,41 @@
+name: Bazel build
+
+on:
+  push: {}
+  pull_request: {}
+
+jobs:
+  build:
+    name: Build examples tutorial
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup bazel
+        uses: jwlawson/actions-setup-bazel@v1
+        with:
+          bazel-version: '4.2.1'
+
+      - name: Setup cache
+        uses: actions/cache@v2
+        with:
+          path: "/home/runner/.cache/bazel"
+          key: bazel
+
+      - name: Set up examples repo
+        run: bash .github/workflows/setup.sh
+
+      - name: Build stage1
+        run: |
+          cd examples/cpp-tutorial/stage1
+          bazel build //main:hello-world
+          echo "Running stage1 example:"
+          bazel-bin/main/hello-world
+      - name: Archive stage1 Build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: stage-1-hello-world
+          path: examples/cpp-tutorial/stage1/bazel-bin/main/hello-world
+
