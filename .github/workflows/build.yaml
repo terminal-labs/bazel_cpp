@@ -39,3 +39,27 @@ jobs:
           name: stage-1-hello-world
           path: examples/cpp-tutorial/stage1/bazel-bin/main/hello-world
 
+
+      - name: Build stage2
+        run: |
+          cd examples/cpp-tutorial/stage2
+          bazel build //main:hello-world
+          echo "Running stage2 example:"
+          bazel-bin/main/hello-world
+      - name: Archive stage2 Build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: stage-2-hello-world
+          path: examples/cpp-tutorial/stage2/bazel-bin/main/hello-world
+
+      - name: Build stage3
+        run: |
+          cd examples/cpp-tutorial/stage3
+          bazel build //main:hello-world
+          echo "Running stage3 example:"
+          bazel-bin/main/hello-world
+      - name: Archive stage3 Build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: stage-3-hello-world
+          path: examples/cpp-tutorial/stage3/bazel-bin/main/hello-world
