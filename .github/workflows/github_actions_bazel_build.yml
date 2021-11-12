@@ -20,7 +20,7 @@ jobs:
       - name: Build
         run: |
            cd multi_package_bazel_build 
-           build //main:hello-world
+           bazel build //main:hello-world
 
       - name: Test
         run: |
