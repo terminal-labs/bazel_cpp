@@ -1,0 +1,28 @@
+name: github-actions-bazel-build
+on: [push]
+jobs:
+  build-hello-world-and-run:
+    runs on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Mount bazel cache
+        uses: actions/cache@v1
+        with:
+          path: "/home/runner/.cache/bazel"
+          key: bazel
+      
+      - name: Install bazelisk
+        run: |
+          curl -LO "https://github.com/bazelbuild/bazelisk/releases/download/v1.1.0/bazelisk-linux-amd64"
+          mkdir -p "multi_package_bazel_build/bin/"
+          mv bazelisk-linux-amd64 "multi_package_bazel_build/bin/bazel"
+          chmod +x "multi_package_bazel_build/bin/bazel"
+
+      - name: Build
+        run: |
+          "multi_package_bazel_build/bin/bazel" build //main:hello-world
+
+      - name: Test
+        run: |
+          multi_package_bazel_build/bazel-bin/main/hello-world
