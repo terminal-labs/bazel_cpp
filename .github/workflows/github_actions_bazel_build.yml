@@ -1,4 +1,4 @@
-name: github-actions-bazel-build
+name: github-actions-bazel-continuous-integration
 on: [push]
 jobs:
   build-hello-world-and-run:
@@ -10,12 +10,6 @@ jobs:
         uses: jwlawson/actions-setup-bazel@v1
         with:
           bazel-version: '4.2.1'
-
-      - name: Mount bazel cache
-        uses: actions/cache@v2
-        with:
-          path: "/home/runner/.cache/bazel"
-          key: bazel
       
       - name: Build
         run: |
@@ -25,3 +19,11 @@ jobs:
       - name: Test
         run: |
           multi_package_bazel_build/bazel-bin/main/hello-world
+
+      - name:  Build artifact
+        uses: actions/upload-artifact@v2
+        with: 
+          name: hello-world
+          path: multi_package_bazel_build/bazel-bin/main/hello-world
+
+
