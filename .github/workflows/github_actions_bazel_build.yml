@@ -6,19 +6,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Setup bazel
+        uses: jwlawson/actions-setup-bazel@v1
+        with:
+          bazel-version: '4.2.1'
+
       - name: Mount bazel cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: "/home/runner/.cache/bazel"
           key: bazel
       
-      - name: Install bazelisk
-        run: |
-          curl -LO "https://github.com/bazelbuild/bazelisk/releases/download/v1.1.0/bazelisk-linux-amd64"
-          mkdir -p "multi_package_bazel_build/bin/"
-          mv bazelisk-linux-amd64 "multi_package_bazel_build/bin/bazel"
-          chmod +x "multi_package_bazel_build/bin/bazel"
-
       - name: Build
         run: |
            cd multi_package_bazel_build 
