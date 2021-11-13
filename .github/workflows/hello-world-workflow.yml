@@ -1,0 +1,9 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      #Check out a copy of the repository
+      - uses: actions/checkout@v2
+      #Reference the direcctory that contains the action
+      - uses: ./.github/actions/hello-world-action
+

@@ -1,0 +1,11 @@
+name: "i-o-action-example"
+description: "Recieves file and generates output"
+inputs: 
+  file-path: #id of input
+    descriptin: "Path too test script"
+    required: true
+    default: "test-file.py"
+outputs: 
+  results-file: #id of output
+    description: "Path too results file"
+
