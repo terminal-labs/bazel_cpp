@@ -1,0 +1,6 @@
+jobs:
+  simple-shell-command:
+    steps:
+      - run: npm install -g bats
+
+      

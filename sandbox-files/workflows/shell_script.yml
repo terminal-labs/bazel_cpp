@@ -1,0 +1,8 @@
+jobs:
+  shell-script-example:
+    steps:
+      - name: Run build script
+        run: ./.github/scripts/build.sh
+        shell: bash
+
+  
