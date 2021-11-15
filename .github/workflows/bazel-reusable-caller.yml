@@ -4,4 +4,4 @@ on: [push]
 
 jobs:
   call-tl-bazel-workflow:
-    uses: terminal-labs/.github/blob/main/workflow-templates/bazel-ci-reusable-test.yml
+    uses: terminal-labs/.github/blob/main/workflow-templates/bazel-ci-reusable-test.yml@v1
