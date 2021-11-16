@@ -1,0 +1,32 @@
+name: Bazel reusable workflow
+
+on: 
+  # push: {}
+  # pull_request: {}
+  workflow_call: {}
+
+jobs:
+  build-hello-world-and-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup bazel
+        uses: jwlawson/actions-setup-bazel@v1.7.0
+        with:
+          bazel-version: '4.2.1'
+      
+      - name: Build
+        run: |
+           cd multi_package_bazel_build 
+           bazel build //main:hello-world
+
+      - name: Test
+        run: |
+          multi_package_bazel_build/bazel-bin/main/hello-world
+
+      - name:  Build artifact
+        uses: actions/upload-artifact@v2
+        with: 
+          name: hello-world
+          path: multi_package_bazel_build/bazel-bin/main/hello-world
