@@ -1,7 +1,9 @@
 name: Bazel reusable workflow
 
 on: 
-  workflow_call:
+  push: {}
+  pull_request: {}
+  workflow_call: {}
 
 jobs:
   build-hello-world-and-run:
