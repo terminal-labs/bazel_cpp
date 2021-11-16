@@ -1,13 +1,6 @@
 name: Bazel reusable workflow
 
-on: 
-  # push: {}
-  # pull_request: {}
-  workflow_call: 
-    inputs:
-      username:
-      required: false
-      type: string
+on: [workflow_call]
 
 jobs:
   build-hello-world-and-run:
