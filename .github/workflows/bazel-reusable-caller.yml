@@ -5,4 +5,4 @@ on:
 
 jobs:
   call-bazel-reusable-workflow:
-    uses: terminal-labs/bazel_cpp/blob/mike_p/.github/workflows/bazel-reusable-workflow.yml@v1
+    uses: terminal-labs/bazel_cpp/.github/workflows/bazel-reusable-workflow.yml@v1
