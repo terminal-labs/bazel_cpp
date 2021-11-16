@@ -1,7 +1,7 @@
 name: Bazel reusable workflow
 
 on: 
-  workflow_call
+  workflow_call:
 
 jobs:
   build-hello-world-and-run:
