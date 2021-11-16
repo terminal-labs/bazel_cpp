@@ -4,4 +4,4 @@ on: push
 
 jobs:
   call-bazel-reusable-workflow:
-    uses: Pinna3/reusable-workflows/blob/main/.github/workflows/bazel-reusable-workflow.yml@v1
+    uses: ./.github/workflows/bazel-reusable-workflow.yml@v1
