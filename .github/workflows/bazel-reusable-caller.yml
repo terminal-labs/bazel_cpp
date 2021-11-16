@@ -1,7 +1,0 @@
-name: Call reusable TL bazel workflow
-
-on: [push]
-
-jobs:
-  call-bazel-reusable-workflow:
-    uses: terminal-labs/bazel_cpp/.github/workflows/bazel-reusable-workflow.yml@master
