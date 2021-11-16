@@ -4,4 +4,4 @@ on: push
 
 jobs:
   call-bazel-reusable-workflow:
-    uses: ./.github/workflows/bazel-reusable-workflow.yml@v1
+    uses: terminal-labs/bazel_cpp/.github/workflows/bazel-reusable-workflow.yml@v1
