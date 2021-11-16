@@ -3,5 +3,5 @@ name: Call reusable TL bazel workflow
 on: [push]
 
 jobs:
-  call-tl-bazel-workflow:
+  call-bazel-reusable-workflow:
     uses: Pinna3/reusable-workflows/.github/workflows/bazel-reusable-workflow.yml@v1
