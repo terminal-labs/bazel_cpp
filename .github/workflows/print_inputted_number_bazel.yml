@@ -20,7 +20,8 @@ jobs:
 
       - name: Test
         run: |
-          more_c++_workspaces/print_number_entered_by_user/bazel-bin/main/print_user_inputted_number 2
+          more_c++_workspaces/print_number_entered_by_user/bazel-bin/main/print_user_inputted_number
+          echo 2
 
 
   
