@@ -1,6 +1,8 @@
 name: Call reusable TL bazel workflow
 
-on: [push]
+on:
+  push:
+    branch: master
 
 jobs:
   call-bazel-reusable-workflow:
